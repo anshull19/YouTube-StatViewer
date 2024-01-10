@@ -1,0 +1,14 @@
+// This is only an example of how your json file will look like // 
+{
+  "type": "xxxxxxx",
+  "project_id": "xxxxxxx",
+  "private_key_id": "xxxxxxx",
+  "private_key": "-----BEGIN PRIVATE KEY-----\n xxxxxxxxx \n-----END PRIVATE KEY-----\n",
+  "client_email": "xxxxxxxxx",
+  "client_id": "xxxxxxxxx",
+  "auth_uri": "xxxxxxxxx",
+  "token_uri": "xxxxxxxxx",
+  "auth_provider_x509_cert_url": "xxxxxxxxx",
+  "client_x509_cert_url": "xxxxxxxxx",
+  "universe_domain": "googleapis.com"
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Channel Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .box {
+            width: 80%;
+            background: linear-gradient(to bottom right, #ff7f7f, #ff4f4f);
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: left;
+            color: #fff;
+        }
+
+        .box h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 0;
+        }
+
+        .box p {
+            margin: 10px 0;
+        }
+
+        .label {
+            color: #ff4f4f;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <form action="/process" method="post">
+        <label for="channel_id" class="label">Enter YouTube Channel ID: </label>
+        <input type="text" id="channel_id" name="channel_id" required>
+        <input type="submit" value="Submit">
+    </form>
+
+    <div class="container">
+        <div class="box" id="channel_info">
+            {% if channel_info %}
+            <h2>Channel Information</h2>
+            <p>Title: {{ channel_info.title }}</p>
+            <p>Description: {{ channel_info.description }}</p>
+            <p>Subscribers: {{ channel_info.subscriber_count }}</p>
+            <p>Videos: {{ channel_info.video_count }}</p>
+            <p>Views: {{ channel_info.view_count }}</p>
+            <p>Country: {{ channel_info.country }}</p>
+            <p>Established: {{ channel_info.published_at }}</p>
+            {% endif %}
+        </div>
+
+        <div class="box" id="most_popular_video">
+            {% if most_popular_video %}
+            <h2>Most Popular Video</h2>
+            <p>Title: {{ most_popular_video.title }}</p>
+            <p>Published Date: {{ most_popular_video.published_at }}</p>
+            <p>View Count: {{ most_popular_video.view_count }}</p>
+            {% endif %}
+        </div>
+
+        <div class="box" id="latest_videos">
+            {% if latest_videos %}
+            <h2>Latest Videos</h2>
+            <ul>
+                {% for video in latest_videos %}
+                <li>
+                    <p>Title: {{ video.title }}</p>
+                    <p>Published Date: {{ video.published_at }}</p>
+                    <p>View Count: {{ video.view_count }}</p>
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
